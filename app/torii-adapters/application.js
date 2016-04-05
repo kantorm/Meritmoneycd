@@ -6,13 +6,13 @@ export default ToriiFirebaseAdapter.extend({
   store: Ember.inject.service(),
 
   open(authentication) {
-actions: {
     return Ember.RSVP.hash({
       provider: authentication.provider,
       uid: authentication.uid,
       currentUser: this._findOrCreateUser(authentication.uid, authentication[authentication.provider])
     });
   },
+
 
   _findOrCreateUser(uid, {displayName: name, profileImageURL: imageUrl, email: email}) {
     let store = this.get('store');
@@ -28,5 +28,5 @@ actions: {
       let user = store.createRecord('user', {id: uid, name: name, imageUrl: imageUrl, email: email});
       return user.save();
     });
-  }
+  },
 });
