@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav navbar-right">
 
           <li>
-          {{#if session.isAuthenticated}}<img src={{session.currentUser.imageUrl}} class="img-responsive img-circle" width="50" height="50" />
+          {{#if session.isAuthenticated}}<img src={{session.currentUser.imageUrl}} class="img-responsive img-circle" width="50" height="50" style="margin-right: 15%"/>
           {{/if}}
           </li>
       <li>  {{#if session.isAuthenticated}}
@@ -50,8 +50,8 @@
         {{#each model as |user|}}
         <div class="col-xs-6 col-sm-3 placeholder">
           <img src={{user.imageUrl}} width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>{{user.name}}</h4>
-          <span class="text-muted">Something else</span>
+          <h4>{{user.name}} <span class="badge">5</span></h4> <!--do tego spana trzeba bedzie pobrac ilosc qudosow tej osoby -->
+
         </div>
         {{/each}}
         {{else}}
